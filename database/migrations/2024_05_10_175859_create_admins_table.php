@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('admins', function (Blueprint $table) {
             $table->increments('admin_id'); // Primary Key
+            $table->string('name', 25);
+            $table->string('phone', 11)->nullable();
+            $table->string('address', 255)->nullable();
             $table->string('email', 25)->unique()->comment('User email');
             $table->string('password', 25)->comment('Password of user account');
             $table->enum('role', ['customer', 'admin','staff'])->default('admin');
