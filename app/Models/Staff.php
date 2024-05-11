@@ -34,6 +34,7 @@ class Staff extends Authenticatable
         'start_date',
         'end_date',
         'department',
+        'picture'
         //'email_verified'
     ];
 

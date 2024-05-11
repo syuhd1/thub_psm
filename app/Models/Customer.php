@@ -32,6 +32,7 @@ class Customer extends Authenticatable
     'role',
     'email',
     'password',
+    'picture'
     //'email_verified'
     ];
 
