@@ -21,3 +21,9 @@ Route::view('/example-page','example-page');
 Route::view('/example-auth','example-auth');
 
 require __DIR__.'/auth.php';
+
+//insert route from (name).php into here in web.php for routing
+
+include __DIR__.'/admin.php';
+include __DIR__.'/customer.php';
+include __DIR__.'/staff.php';
