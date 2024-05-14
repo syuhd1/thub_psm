@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->increments('admin_id'); // Primary Key
-            $table->string('name', 25);
-            $table->string('phone', 11)->nullable();
+            $table->id(); 
+            $table->string('username')->unique()->nullable();
+            $table->string('name',50);
+            $table->string('phone', 12)->nullable();
             $table->string('address', 255)->nullable();
-            $table->string('email', 25)->unique()->comment('User email');
-            $table->string('password', 25)->comment('Password of user account');
+            $table->string('email', 30)->unique(); //->comment('User email');
+            $table->string('password', 255); //->comment('Password of user account');
             $table->enum('role', ['customer', 'admin','staff'])->default('admin');
-            $table->enum('acc_status', ['Active', 'Inactive'])->default('Active')->comment('Active status');
-            $table->string('picture')->nullable()->comment('Profile picture');
+            $table->enum('acc_status', ['Active', 'Inactive'])->default('Active'); //->comment('Active status');
+            $table->string('picture')->nullable(); //->comment('Profile picture');
             //$table->timestamps('email_verified')->nullable;
             $table->timestamps();
         });

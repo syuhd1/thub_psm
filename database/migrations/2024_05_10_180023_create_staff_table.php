@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->string('staff_id', 25)->primary(); // General user id and Primary Key
-            $table->string('name', 25);
-            $table->string('phone', 11)->nullable();
+            $table->id();// General user id and Primary Key
+            $table->string('name', 50);
+            $table->string('phone', 12)->nullable();
             $table->string('address', 255)->nullable();
-            $table->date('birthday')->nullable()->comment('Birthdate');
-            $table->enum('acc_status', ['Active', 'Inactive'])->default('Active')->comment('Active status of account');
-            $table->dateTime('register_date')->comment('Account register date');
+            $table->date('birthday')->nullable(); //->comment('Birthdate');
+            $table->enum('acc_status', ['Active', 'Inactive'])->default('Active'); //->comment('Active status of account');
+            $table->dateTime('register_date'); //->comment('Account register date');
             $table->enum('role', ['customer', 'admin','staff'])->default('staff');
-            $table->string('email', 25)->unique()->comment('User email');
-            $table->string('password', 25)->comment('User password');
+            $table->string('email', 30)->unique(); //->comment('User email');
+            $table->string('password', 255); //->comment('User password');
             $table->date('start_date')->comment('Start date');
-            $table->date('end_date')->nullable()->comment('End date');
-            $table->string('department', 25)->nullable()->comment('Staff department');
+            $table->date('end_date')->nullable();//->comment('End date');
+            $table->string('department', 25)->nullable(); //->comment('Staff department');
             $table->string('picture')->nullable();
             //$table->timestamps('email_verified')->nullable;
             $table->timestamps();
