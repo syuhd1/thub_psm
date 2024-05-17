@@ -14,6 +14,21 @@ Route::prefix('admin')->name('admin.')->group(function(){
         //paused 13/5/24 - add here later vid #7 timestamp 1:52
         Route::view('/home', 'back.pages.admin.home')->name('home');
     });
+
+    Route::middleware(['guest:admin'])->group(function(){
+        Route::view('/forgot-password', 'back.pages.admin.auth.forgot')->name('forgot');
+    });
+
+    Route::middleware(['guest:admin'])->group(function(){
+        Route::view('/reset-password', 'back.pages.admin.auth.reset')->name('reset');
+        
+    });
+
+    Route::middleware(['guest:admin'])->group(function(){
+        Route::view('/product-list', 'back.pages.admin.product.product')->name('product');
+    });
+
+    
 });
 
 /*
