@@ -21,7 +21,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
     Route::middleware(['guest:admin'])->group(function(){
         Route::view('/reset-password', 'back.pages.admin.auth.reset')->name('reset');
-        
+        Route::post('/login_handler', [AdminController::class, 'loginHandler'])->name('login_handler');
     });
 
     Route::middleware(['guest:admin'])->group(function(){
