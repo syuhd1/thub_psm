@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 //add new
-use Illuminare\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -15,7 +15,7 @@ class AdminController extends Controller
 
         if ($fieldType == 'email'){
             $request->validate([
-                'login_id'=>'required|email|exists:admins, email',
+                'login_id'=>'required|email|exists:admins,email',
                 'password'=>'required|min:5|max:25'
             ],[
                 'login_id.required'=>'Please insert Email or Username',
@@ -27,7 +27,7 @@ class AdminController extends Controller
             
         } else{
             $request->validate([
-                'login_id'=>'required|exists:admins, username',
+                'login_id'=>'required|exists:admins,username',
                 'password'=>'required|min:5|max:25'
             ],[
                 'login_id.required'=>'Please insert Email or Username',
